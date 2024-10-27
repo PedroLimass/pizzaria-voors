@@ -13,7 +13,6 @@ export interface OrderData {
   customizations: string[];
 }
 
-
 export interface PizzaContextType {
   orders: PizzaOrder[];
   currentOrder: PizzaOrder | null;
@@ -24,6 +23,8 @@ export interface PizzaContextType {
   previousStep: () => void;
   isStepValid: () => boolean;
   deleteOrder: (orderId: number) => void;
+  mockReturnValue?: unknown;
+  mockReturnValueOnce?: unknown;
 }
 
 export interface CustomizationSelectorProps {
@@ -35,16 +36,17 @@ export interface CustomizationSelectorProps {
 export interface OptionSelectorProps {
   title: string;
   options: string[];
-  selectedOption?: string; // Para seleção única
-  selectedOptions?: string[]; // Para seleção múltipla
-  onSelectOption?: (option: string) => void; // Callback para seleção única
-  onAddOption?: (option: string) => void; // Callback para adicionar (seleção múltipla)
-  onRemoveOption?: (option: string) => void; // Callback para remover (seleção múltipla)
-  isMultiSelect?: boolean; // Flag para ativar seleção múltipla
+  selectedOption?: string;
+  selectedOptions?: string[];
+  onSelectOption?: (option: string) => void;
+  onAddOption?: (option: string) => void;
+  onRemoveOption?: (option: string) => void;
+  isMultiSelect?: boolean;
 }
 
 export interface OrderSummaryProps {
   order: PizzaOrder;
+  deleteOrder?: (orderId: number) => void;
 }
 
 export interface OrderModalProps {

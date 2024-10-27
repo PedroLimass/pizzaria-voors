@@ -82,6 +82,7 @@ const Order = () => {
           </button>
           {currentStep < 2 ? (
             <button
+              data-testid="next-button"
               onClick={nextStep}
               disabled={!isStepValid()}
               className="bg-pizzariaGreen text-white py-2 px-4 rounded hover:bg-pizzariaRed transition duration-200 disabled:opacity-50 w-full"
@@ -90,6 +91,7 @@ const Order = () => {
             </button>
           ) : (
             <button
+            data-testid="add-order-button"
               onClick={() => {
                 if (currentOrder) addOrder(currentOrder);
                 setModalOpen(true); // Abre o modal ao adicionar pedido

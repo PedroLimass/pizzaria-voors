@@ -10,6 +10,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({ order }) => {
       <div className="flex justify-between items-center mb-2">
         <h3 className="text-lg font-bold text-pizzariaRed ">✅ Pedido </h3>
         <button
+          data-testid="delete-button"
           onClick={() => deleteOrder(order.id)}
           className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
         >
