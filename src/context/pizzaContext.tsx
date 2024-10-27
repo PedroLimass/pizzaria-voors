@@ -1,26 +1,6 @@
 import { createContext, useState, ReactNode } from "react";
 import { calculatePrice, calculatePreparationTime } from "../utils";
-import { OrderData } from "../utils/calculatePreparationTime";
-
-interface PizzaOrder {
-  id: number;
-  size: string;
-  flavor: string;
-  customizations: string[];
-  price: number;
-  preparationTime: number;
-}
-
-interface PizzaContextType {
-  orders: PizzaOrder[];
-  currentOrder: PizzaOrder | null;
-  currentStep: number;
-  addOrder: (orderData: OrderData) => void;
-  updateCurrentOrder: (updatedOrder: Partial<PizzaOrder>) => void;
-  nextStep: () => void;
-  previousStep: () => void;
-  isStepValid: () => boolean;
-}
+import { PizzaContextType, PizzaOrder, OrderData } from "../types";
 
 export const PizzaContext = createContext<PizzaContextType | undefined>(
   undefined
@@ -92,6 +72,12 @@ export const PizzaProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
+  const deleteOrder = (orderId: number) => {
+    setOrders((prevOrders) =>
+      prevOrders.filter((order) => order.id !== orderId)
+    );
+  };
+
   return (
     <PizzaContext.Provider
       value={{
@@ -103,6 +89,7 @@ export const PizzaProvider = ({ children }: { children: ReactNode }) => {
         nextStep,
         previousStep,
         isStepValid,
+        deleteOrder,
       }}
     >
       {children}

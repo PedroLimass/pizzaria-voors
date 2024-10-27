@@ -1,20 +1,16 @@
-export interface OrderData {
-  size: string;
-  flavor: string;
-  customizations: string[];
-}
+import { OrderData } from "../types";
 
 export const calculatePreparationTime = (orderData: OrderData): number => {
   let baseTime = 0;
 
   switch (orderData.size) {
-    case "small":
+    case "pequena":
       baseTime = 15;
       break;
-    case "medium":
+    case "média":
       baseTime = 20;
       break;
-    case "large":
+    case "grande":
       baseTime = 25;
       break;
     default:

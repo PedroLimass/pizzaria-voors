@@ -1,20 +1,16 @@
-export interface OrderData {
-  size: string;
-  flavor: string;
-  customizations: string[];
-}
+import { OrderData } from "../types";
 
 export const calculatePrice = (orderData: OrderData): number => {
   let basePrice = 0;
 
   switch (orderData.size) {
-    case "small":
+    case "pequena":
       basePrice = 20.2;
       break;
-    case "medium":
+    case "média":
       basePrice = 30.3;
       break;
-    case "large":
+    case "grande":
       basePrice = 40.0;
       break;
     default:
