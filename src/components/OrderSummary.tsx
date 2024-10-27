@@ -1,17 +1,7 @@
 import React from "react";
 import { usePizza } from "../hooks/usePizza";
 import { FaRegTrashAlt } from "react-icons/fa";
-
-interface OrderSummaryProps {
-  order: {
-    id: number;
-    size: string;
-    flavor: string;
-    customizations: string[];
-    price: number;
-    preparationTime: number;
-  };
-}
+import { OrderSummaryProps } from "../types";
 
 const OrderSummary: React.FC<OrderSummaryProps> = ({ order }) => {
   const { deleteOrder } = usePizza();

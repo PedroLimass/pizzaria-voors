@@ -52,3 +52,14 @@ export interface OrderModalProps {
   onClose: () => void;
   orders: PizzaOrder[];
 }
+
+export interface OrderSummaryProps {
+  order: {
+    id: number;
+    size: string;
+    flavor: string;
+    customizations: string[];
+    price: number;
+    preparationTime: number;
+  };
+}
