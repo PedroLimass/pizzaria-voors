@@ -1,0 +1,59 @@
+{
+  "sizes": [
+    {
+      "id": 1,
+      "name": "Pequena",
+      "price": 20.2,
+      "preparationTime": 15
+    },
+    {
+      "id": 2,
+      "name": "Média",
+      "price": 30.3,
+      "preparationTime": 20
+    },
+    {
+      "id": 3,
+      "name": "Grande",
+      "price": 40.0,
+      "preparationTime": 25
+    }
+  ],
+  "flavors": [
+    {
+      "id": 1,
+      "name": "Calabresa",
+      "additionalTime": 0
+    },
+    {
+      "id": 2,
+      "name": "Marguerita",
+      "additionalTime": 0
+    },
+    {
+      "id": 3,
+      "name": "Portuguesa",
+      "additionalTime": 5
+    }
+  ],
+  "customizations": [
+    {
+      "id": 1,
+      "name": "Extra Bacon",
+      "additionalPrice": 3.0,
+      "additionalTime": 0
+    },
+    {
+      "id": 2,
+      "name": "Sem Cebola",
+      "additionalPrice": 0.0,
+      "additionalTime": 0
+    },
+    {
+      "id": 3,
+      "name": "Borda Recheada",
+      "additionalPrice": 5.0,
+      "additionalTime": 5
+    }
+  ]
+}
