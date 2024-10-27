@@ -1,50 +1,93 @@
-# React + TypeScript + Vite
+# Pizzaria Voors
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto de uma aplicação de pedidos para uma pizzaria, desenvolvido usando React, TypeScript e Vite. O objetivo é permitir que os usuários façam pedidos personalizáveis de pizzas, visualizem o resumo do pedido e simulem o processo de preparação.
 
-Currently, two official plugins are available:
+## Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React** e **TypeScript** para desenvolvimento front-end.
+- **Vite** para o bundling e execução local.
+- **Tailwind CSS** para o estilo.
+- **ESLint** para padronização de código.
+- **Docker** e **Makefile** para automação e simplificação de tarefas de execução.
 
-## Expanding the ESLint configuration
+## Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Seleção de Opções**: Os usuários podem selecionar opções de pizza, como tamanho e ingredientes.
+- **Resumo do Pedido**: Visualização dos detalhes do pedido com cálculo do preço total e tempo de preparação.
+- **Testes**: Implementação de testes unitários para componentes e funções principais.
 
-- Configure the top-level `parserOptions` property like this:
+## Pré-requisitos
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- Node.js (>= versão 14)
+- Docker
+
+## Instalação
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/pedrolimass/pizzaria-voors.git
+   cd pizzaria-voors
+   ```
+
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+
+## Uso com Makefile
+
+O `makefile` contém comandos para facilitar a execução do projeto com Docker. Abaixo estão os comandos disponíveis:
+
+- **Build**: Constrói a imagem Docker e inicia os serviços:
+  ```bash
+  make build
+  ```
+
+- **Run**: Inicia a aplicação usando Docker Compose:
+  ```bash
+  make run
+  ```
+
+- **Start**: Inicia os contêineres parados sem reconstruir:
+  ```bash
+  make start
+  ```
+
+- **Stop**: Para os contêineres em execução:
+  ```bash
+  make stop
+  ```
+
+- **Prune**: Remove recursos Docker não utilizados (imagens, volumes, etc.):
+  ```bash
+  make prune
+  ```
+
+Após iniciar o serviço, a aplicação estará disponível em `http://localhost:3000`.
+
+## Estrutura de Pastas
+
+- **`/src/components`**: Componentes da interface, como `OptionSelector` e `OrderSummary`.
+- **`/src/context`**: Contexto global para manipulação de estado.
+- **`/src/utils`**: Funções utilitárias, incluindo cálculo de preço e tempo de preparação.
+
+## Testes
+
+Os testes estão localizados nas pastas `src/components/__tests__` e `src/utils/__test__`.
+
+Para executar os testes:
+
+```bash
+npm run test
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Contribuição
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Para contribuir com o projeto:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. Crie um fork do repositório.
+2. Crie uma branch para sua feature (`git checkout -b feature/NomeDaFeature`).
+3. Faça commit de suas alterações (`git commit -m 'Adiciona nova feature'`).
+4. Envie para o branch (`git push origin feature/NomeDaFeature`).
+5. Abra um Pull Request.
+
